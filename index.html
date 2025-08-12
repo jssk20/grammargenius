@@ -149,6 +149,16 @@
             color: #555;
         }
         
+        /* Button Section - Moved above team section */
+        .button-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1.5rem 0;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1.4s;
+        }
+        
         .btn {
             display: inline-block;
             background: linear-gradient(45deg, #FF9A3C, #ff6a00);
@@ -162,12 +172,10 @@
             box-shadow: 0 4px 15px rgba(255, 154, 60, 0.5);
             transition: all 0.3s ease;
             text-decoration: none;
-            width: 60%;
-            max-width: 300px;
             position: relative;
             overflow: hidden;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards 1.5s;
+            text-align: center;
+            min-width: 250px;
         }
         
         .btn:hover {
@@ -194,6 +202,156 @@
         @keyframes shine {
             0% { left: -100%; }
             100% { left: 100%; }
+        }
+        
+        /* Team Section - Made Shorter and moved below button */
+        .team-section {
+            margin: 1.5rem 0 0 0;
+            padding: 1.5rem 0 0 0;
+            border-top: 2px solid rgba(106, 17, 203, 0.1);
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1.6s;
+        }
+        
+        .team-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #6a11cb;
+            margin-bottom: 0.3rem;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .team-subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .team-member {
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.05), rgba(37, 117, 252, 0.05));
+            border: 1px solid rgba(106, 17, 203, 0.15);
+            border-radius: 10px;
+            padding: 0.8rem 0.4rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.6s ease forwards;
+            animation-delay: calc(var(--delay) * 0.1s + 1.6s);
+            opacity: 0;
+        }
+        
+        @keyframes slideInUp {
+            0% { opacity: 0; transform: translateY(30px) scale(0.9); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        .team-member:nth-child(1) { --delay: 1; }
+        .team-member:nth-child(2) { --delay: 2; }
+        .team-member:nth-child(3) { --delay: 3; }
+        .team-member:nth-child(4) { --delay: 4; }
+        .team-member:nth-child(5) { --delay: 5; }
+        
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .team-member:hover::before {
+            left: 100%;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(106, 17, 203, 0.2);
+            border-color: rgba(106, 17, 203, 0.3);
+        }
+        
+        .member-icon {
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
+            background: linear-gradient(45deg, #FF9A3C, #ff6a00);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            margin: 0 auto 0.3rem;
+            color: white;
+            animation: rotateIcon 4s ease-in-out infinite;
+        }
+        
+        @keyframes rotateIcon {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-5deg); }
+        }
+        
+        .member-name {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.1rem;
+            line-height: 1.1;
+            word-break: break-word;
+        }
+        
+        .member-role {
+            font-size: 0.6rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .guide-section {
+            background: linear-gradient(135deg, rgba(255, 154, 60, 0.1), rgba(255, 106, 0, 0.1));
+            border: 1px solid rgba(255, 154, 60, 0.2);
+            border-radius: 10px;
+            padding: 0.8rem;
+            margin-top: 0.8rem;
+            position: relative;
+            overflow: hidden;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(255, 154, 60, 0.3); }
+            100% { box-shadow: 0 0 15px rgba(255, 154, 60, 0.5); }
+        }
+        
+        .guide-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #FF9A3C;
+            margin-bottom: 0.3rem;
+        }
+        
+        .guide-name {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.1rem;
+        }
+        
+        .guide-designation {
+            font-size: 0.75rem;
+            color: #666;
+            font-style: italic;
         }
         
         .floating {
@@ -263,6 +421,7 @@
             50% { border-color: #FF9A3C }
         }
         
+        /* Responsive Design */
         @media (max-width: 768px) {
             .content-box {
                 padding: 2rem;
@@ -279,13 +438,13 @@
             
             .welcome-message {
                 font-size: 1rem;
+                margin-bottom: 2rem;
             }
             
             .btn {
                 padding: 0.8rem 1.5rem;
                 font-size: 1.1rem;
-                width: 80%;
-                max-width: none;
+                min-width: 200px;
             }
             
             .floating {
@@ -294,6 +453,38 @@
             
             .feature-icon {
                 font-size: 3rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.6rem;
+            }
+            
+            .team-title {
+                font-size: 1.3rem;
+            }
+            
+            .member-name {
+                font-size: 0.65rem;
+            }
+            
+            .member-role {
+                font-size: 0.55rem;
+            }
+            
+            .member-icon {
+                font-size: 1.4rem;
+                width: 28px;
+                height: 28px;
+                line-height: 28px;
+            }
+            
+            .guide-name {
+                font-size: 0.9rem;
+            }
+            
+            .guide-designation {
+                font-size: 0.7rem;
             }
         }
         
@@ -330,9 +521,71 @@
             }
             
             .btn {
-                padding: 0.7rem 1.2rem;
+                padding: 0.8rem 1.2rem;
                 font-size: 1rem;
-                width: 100%;
+                min-width: 180px;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+            
+            .team-title {
+                font-size: 1.2rem;
+            }
+            
+            .member-icon {
+                font-size: 1.2rem;
+                width: 24px;
+                height: 24px;
+                line-height: 24px;
+            }
+            
+            .member-name {
+                font-size: 0.6rem;
+                line-height: 1;
+            }
+            
+            .member-role {
+                font-size: 0.5rem;
+            }
+            
+            .guide-title {
+                font-size: 0.8rem;
+            }
+            
+            .guide-name {
+                font-size: 0.85rem;
+            }
+            
+            .guide-designation {
+                font-size: 0.65rem;
+            }
+            
+            .team-section {
+                margin: 1rem 0 0 0;
+                padding: 1rem 0 0 0;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 0.4rem;
+            }
+            
+            .member-name {
+                font-size: 0.55rem;
+            }
+            
+            .member-role {
+                font-size: 0.45rem;
+            }
+            
+            .btn {
+                min-width: 160px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -348,8 +601,6 @@
         <div class="floating" id="period1">.</div>
         <div class="floating" id="semicolon1">;</div>
         <div class="floating" id="colon1">:</div>
-        
-        <!-- Dynamic particles (created via JS) -->
         
         <div class="content-box">
             <div class="logo-container">
@@ -370,7 +621,54 @@
                 <div class="feature-desc">Learn at your own pace with engaging, interactive content that makes grammar fun and approachable.</div>
             </div>
             
-            <a href="topics/home.php" class="btn">Enter Grammar Genius</a>
+            <!-- Centered Button Section - Now above team section -->
+            <div class="button-section">
+                <a href="topics/home.php" class="btn">Enter Grammar Genius</a>
+            </div>
+            
+            <!-- Team Section - Now below button -->
+            <div class="team-section">
+                <h3 class="team-title">Meet Our Team</h3>
+                <p class="team-subtitle">The brilliant minds behind Grammar Genius</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-icon">👨‍💻</div>
+                        <div class="member-name">JAI SURYA S K</div>
+                        <div class="member-role">Developer</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-icon">👨‍💻</div>
+                        <div class="member-name">SRUJAN O</div>
+                        <div class="member-role">Developer</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-icon">👨‍💻</div>
+                        <div class="member-name">VARUN KUMAR</div>
+                        <div class="member-role">Content Creator</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-icon">👨‍💻</div>
+                        <div class="member-name">SRI KARTHIKEYAN</div>
+                        <div class="member-role">Content Creator</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-icon">👨‍💻</div>
+                        <div class="member-name">VISHAL M</div>
+                        <div class="member-role">Content Creator</div>
+                    </div>
+                </div>
+                
+                <div class="guide-section">
+                    <div class="guide-title">Under the Guidance of</div>
+                    <div class="guide-name">Dr. Tissaa Tony. C</div>
+                    <div class="guide-designation">Project Guide</div>
+                </div>
+            </div>
         </div>
     </div>
 
